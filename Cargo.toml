@@ -1,0 +1,14 @@
+[package]
+name = "catr"
+version = "0.1.0"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = "2.33.3"
+
+[dev-dependencies]
+assert_cmd = "2.0.2"
+predicates = "2.0.3"
+rand = "0.8.4"
