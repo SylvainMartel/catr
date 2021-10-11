@@ -17,6 +17,7 @@ pub fn run(config: Config) -> MyResult<()> {
         match open(&filename) {
             Err(err) => eprintln!("Failed to open {}: {}", filename, err),
             Ok(file) => {
+                let mut num = 0;
                 for (line_num, lines_result) in file.lines().enumerate() {
                     let line = lines_result?;
                     if config.number_lines {
@@ -29,17 +30,15 @@ pub fn run(config: Config) -> MyResult<()> {
                         if line.is_empty() {
                             println!()
                         } else {
-                            println!("{:>6}\t{}", line_num + 1, line);
+                            num += 1;
+                            println!("{:>6}\t{}", num, line)
                         }
-                    }
-                    
-                    else {
+                    } else {
                         if line.is_empty() {
                             println!()
-                        }else {
+                        } else {
                             println!("{}", line)
                         }
-                        
                     }
                 }
             }
